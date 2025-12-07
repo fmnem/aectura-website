@@ -1,0 +1,18 @@
+{
+  "title": "AECTURA",
+  "tagline": "Digital Strategy for Capital Delivery",
+  "description": "AECTURA is a boutique digital consultancy helping asset owners and capital delivery programmes turn digital investment into measurable outcomes.",
+  "url": "https://aectura.com",
+  "author": "AECTURA",
+  "email": "hello@aectura.com",
+  "social": {
+    "linkedin": "https://linkedin.com/company/aectura"
+  },
+  "navigation": [
+    { "label": "Home", "url": "/" },
+    { "label": "About", "url": "/about/" },
+    { "label": "Services", "url": "/services/" },
+    { "label": "Insights", "url": "/insights/" },
+    { "label": "Contact", "url": "/contact/" }
+  ]
+}

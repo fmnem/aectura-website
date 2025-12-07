@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: Insights
+description: Perspectives on digital strategy, transformation, and delivery in the built environment.
+---
+
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">Insights</h1>
+    <p class="page-subtitle">Perspectives on digital strategy and delivery</p>
+  </div>
+</header>
+
+<section class="insights-list">
+  <div class="container container--narrow">
+    {% set insightPosts = collections.insights %}
+    {% if insightPosts.length > 0 %}
+      {% for post in insightPosts %}
+      <a href="{{ post.url }}" class="insight-preview">
+        <div class="insight-preview-meta">
+          {% if post.data.category %}<span>{{ post.data.category }}</span>{% endif %}
+          <time datetime="{{ post.date | dateISO }}">{{ post.date | dateFormat }}</time>
+        </div>
+        <h3>{{ post.data.title }}</h3>
+        <p>{{ post.data.excerpt or post.content | excerpt }}</p>
+      </a>
+      {% endfor %}
+    {% else %}
+      <p>Insights coming soon. We're preparing perspectives on digital strategy, transformation, and delivery in the built environment.</p>
+    {% endif %}
+  </div>
+</section>

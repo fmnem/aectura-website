@@ -1,0 +1,60 @@
+---
+layout: base.njk
+title: Contact
+description: Start a conversation with AECTURA about your digital challenges.
+---
+
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">Contact</h1>
+    <p class="page-subtitle">Start a conversation</p>
+  </div>
+</header>
+
+<section class="contact-content">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Let's discuss your challenges</h2>
+        <p>Whether you're navigating a complex digital transformation, seeking to establish ownership of enterprise platforms, or need senior digital capability embedded in your programme — we'd welcome the opportunity to understand your context.</p>
+        <p>We're selective about the work we take on, but always happy to have an initial conversation to explore whether there's a fit.</p>
+        
+        <div class="contact-details">
+          <a href="mailto:hello@aectura.com">hello@aectura.com</a>
+          <a href="https://linkedin.com/company/aectura" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="sr-only">
+            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+          </p>
+          
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="organisation" class="form-label">Organisation</label>
+            <input type="text" id="organisation" name="organisation" class="form-input">
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">How can we help?</label>
+            <textarea id="message" name="message" class="form-textarea" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn--primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

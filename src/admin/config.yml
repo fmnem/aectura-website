@@ -1,0 +1,192 @@
+backend:
+  name: github
+  repo: fmnem/aectura-website  # Update this with your GitHub username
+  branch: main
+  base_url: https://aectura.com  # Update for production OAuth
+  auth_endpoint: /api/auth  # For Azure Static Web Apps auth
+
+# For local development, uncomment below:
+# local_backend: true
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+# Logo for the CMS interface
+logo_url: /assets/images/logo.svg
+
+# Site URL for preview
+site_url: https://aectura.com
+
+# Display URL in CMS
+display_url: https://aectura.com
+
+# Slug settings
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  # ============================================
+  # INSIGHTS (Blog/Thought Leadership)
+  # ============================================
+  - name: "insights"
+    label: "Insights"
+    label_singular: "Insight"
+    folder: "src/insights"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "insights/{{slug}}"
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - label: "Strategy"
+        field: category
+        pattern: "Strategy"
+      - label: "Delivery"
+        field: category
+        pattern: "Delivery"
+      - label: "Technology"
+        field: category
+        pattern: "Technology"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Strategy"
+          - "Delivery"
+          - "Technology"
+          - "Information Management"
+          - "Leadership"
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "Brief summary for listing pages (160 chars recommended)" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Reading Time (minutes)", name: "readingTime", widget: "number", required: false, value_type: "int", min: 1 }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ============================================
+  # SERVICES (Individual Service Pages)
+  # ============================================
+  - name: "services"
+    label: "Services"
+    label_singular: "Service"
+    folder: "src/services"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "services/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Order", name: "order", widget: "number", value_type: "int", hint: "Display order on services page" }
+      - { label: "Short Description", name: "shortDescription", widget: "text", hint: "Brief description for cards/listings" }
+      - { label: "Icon", name: "icon", widget: "string", required: false, hint: "Icon name or SVG path" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ============================================
+  # CASE STUDIES
+  # ============================================
+  - name: "case-studies"
+    label: "Case Studies"
+    label_singular: "Case Study"
+    folder: "src/case-studies"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "case-studies/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Client", name: "client", widget: "string", required: false, hint: "Client name (if disclosable)" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - label: "Sector"
+        name: "sector"
+        widget: "select"
+        options:
+          - "Infrastructure"
+          - "Transport"
+          - "Energy"
+          - "Water"
+          - "Property"
+          - "Government"
+          - "Mixed-Use"
+      - { label: "Challenge", name: "challenge", widget: "text", hint: "Brief description of the challenge" }
+      - { label: "Approach", name: "approach", widget: "text", hint: "Brief description of approach taken" }
+      - { label: "Outcome", name: "outcome", widget: "text", hint: "Brief description of outcomes achieved" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "boolean", default: true, hint: "Show challenge/approach/outcome summary block" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ============================================
+  # PAGES (Static Pages)
+  # ============================================
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "About"
+        name: "about"
+        file: "src/about.njk"
+        fields:
+          - { label: "Title", name: "title", widget: "hidden", default: "About" }
+          - { label: "Description", name: "description", widget: "string" }
+      - label: "Contact"
+        name: "contact"
+        file: "src/contact.njk"
+        fields:
+          - { label: "Title", name: "title", widget: "hidden", default: "Contact" }
+          - { label: "Description", name: "description", widget: "string" }
+
+  # ============================================
+  # SITE SETTINGS
+  # ============================================
+  - name: "settings"
+    label: "Settings"
+    files:
+      - label: "Site Metadata"
+        name: "site"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Site URL", name: "url", widget: "string" }
+          - { label: "Author", name: "author", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Social Links"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+          - label: "Navigation"
+            name: "navigation"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+
+  # ============================================
+  # FUTURE: OFFERINGS / SECTOR PAGES
+  # ============================================
+  # Uncomment and configure when ready to add these content types
+  
+  # - name: "offerings"
+  #   label: "Offerings"
+  #   label_singular: "Offering"
+  #   folder: "src/offerings"
+  #   create: true
+  #   slug: "{{slug}}"
+  #   fields:
+  #     - { label: "Title", name: "title", widget: "string" }
+  #     - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+  #     - { label: "Order", name: "order", widget: "number", value_type: "int" }
+  #     - { label: "Body", name: "body", widget: "markdown" }
+
+  # - name: "sectors"
+  #   label: "Sectors"
+  #   label_singular: "Sector"
+  #   folder: "src/sectors"
+  #   create: true
+  #   slug: "{{slug}}"
+  #   fields:
+  #     - { label: "Title", name: "title", widget: "string" }
+  #     - { label: "Description", name: "description", widget: "text" }
+  #     - { label: "Featured Image", name: "image", widget: "image", required: false }
+  #     - { label: "Body", name: "body", widget: "markdown" }

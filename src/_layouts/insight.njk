@@ -1,0 +1,32 @@
+---
+layout: base.njk
+---
+
+<article class="insight" itemscope itemtype="http://schema.org/Article">
+  <header class="insight-header">
+    <div class="container container--narrow">
+      {% if category %}
+      <span class="insight-category">{{ category }}</span>
+      {% endif %}
+      <h1 class="insight-title" itemprop="headline">{{ title }}</h1>
+      <div class="insight-meta">
+        <time datetime="{{ date | dateISO }}" itemprop="datePublished">{{ date | dateFormat }}</time>
+        {% if readingTime %}
+        <span class="insight-reading-time">{{ readingTime }} min read</span>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+  
+  <div class="insight-content" itemprop="articleBody">
+    <div class="container container--narrow">
+      {{ content | safe }}
+    </div>
+  </div>
+  
+  <footer class="insight-footer">
+    <div class="container container--narrow">
+      <a href="/insights/" class="back-link">&larr; Back to Insights</a>
+    </div>
+  </footer>
+</article>

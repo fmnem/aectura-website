@@ -1,0 +1,25 @@
+{
+  "name": "aectura-website",
+  "version": "1.0.0",
+  "description": "AECTURA - Digital Strategy for Capital Delivery",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "debug": "DEBUG=Eleventy* npx @11ty/eleventy"
+  },
+  "keywords": [
+    "aectura",
+    "digital-strategy",
+    "aec",
+    "consulting"
+  ],
+  "author": "AECTURA",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "@11ty/eleventy-plugin-rss": "^1.2.0"
+  }
+}

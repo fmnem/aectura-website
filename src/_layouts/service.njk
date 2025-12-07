@@ -1,0 +1,30 @@
+---
+layout: base.njk
+---
+
+<article class="service-detail">
+  <header class="service-header">
+    <div class="container">
+      <h1 class="service-title">{{ title }}</h1>
+      {% if subtitle %}
+      <p class="service-subtitle">{{ subtitle }}</p>
+      {% endif %}
+    </div>
+  </header>
+  
+  <div class="service-content">
+    <div class="container">
+      {{ content | safe }}
+    </div>
+  </div>
+  
+  <aside class="service-cta">
+    <div class="container">
+      <div class="cta-box">
+        <h3>Ready to discuss?</h3>
+        <p>Let's explore how this approach could work for your organisation.</p>
+        <a href="/contact/" class="btn btn--primary">Get in touch</a>
+      </div>
+    </div>
+  </aside>
+</article>

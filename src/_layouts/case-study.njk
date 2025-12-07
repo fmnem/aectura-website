@@ -1,0 +1,56 @@
+---
+layout: base.njk
+---
+
+<article class="case-study" itemscope itemtype="http://schema.org/Article">
+  <header class="case-study-header">
+    <div class="container">
+      {% if sector %}
+      <span class="case-study-sector">{{ sector }}</span>
+      {% endif %}
+      <h1 class="case-study-title" itemprop="headline">{{ title }}</h1>
+      {% if client %}
+      <p class="case-study-client">{{ client }}</p>
+      {% endif %}
+    </div>
+  </header>
+  
+  {% if summary %}
+  <div class="case-study-summary">
+    <div class="container">
+      <div class="summary-grid">
+        {% if challenge %}
+        <div class="summary-item">
+          <h4>Challenge</h4>
+          <p>{{ challenge }}</p>
+        </div>
+        {% endif %}
+        {% if approach %}
+        <div class="summary-item">
+          <h4>Approach</h4>
+          <p>{{ approach }}</p>
+        </div>
+        {% endif %}
+        {% if outcome %}
+        <div class="summary-item">
+          <h4>Outcome</h4>
+          <p>{{ outcome }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  
+  <div class="case-study-content" itemprop="articleBody">
+    <div class="container container--narrow">
+      {{ content | safe }}
+    </div>
+  </div>
+  
+  <footer class="case-study-footer">
+    <div class="container container--narrow">
+      <a href="/case-studies/" class="back-link">&larr; Back to Case Studies</a>
+    </div>
+  </footer>
+</article>
