@@ -2,7 +2,7 @@ backend:
   name: github
   repo: fmnem/aectura-website  # Update this with your GitHub username
   branch: main
-  base_url: https://aectura.com  # Update for production OAuth
+  base_url: https://agreeable-mushroom-0f640571e.3.azurestaticapps.net/  # Update for production OAuth
   auth_endpoint: /api/auth  # For Azure Static Web Apps auth
 
 # For local development, uncomment below:
@@ -15,10 +15,10 @@ public_folder: "/assets/images"
 logo_url: /assets/images/logo.svg
 
 # Site URL for preview
-site_url: https://aectura.com
+site_url: https://agreeable-mushroom-0f640571e.3.azurestaticapps.net/
 
 # Display URL in CMS
-display_url: https://aectura.com
+display_url: https://agreeable-mushroom-0f640571e.3.azurestaticapps.net/
 
 # Slug settings
 slug:
